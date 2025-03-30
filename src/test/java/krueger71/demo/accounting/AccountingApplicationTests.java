@@ -1,10 +1,10 @@
-package krueger71.demo;
+package krueger71.demo.accounting;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
 @SpringBootTest
-class ApplicationTests {
+class AccountingApplicationTests {
 
 	@Test
 	void contextLoads() {

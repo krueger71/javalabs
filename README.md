@@ -1,3 +1,5 @@
-# Demo application
+# Demo applications in Java
 
-A demo application with a Java backend and web frontend.
+## Accounting
+
+Double-entry bookkeeping prototype. Backend in SpringBoot.
