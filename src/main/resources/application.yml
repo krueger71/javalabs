@@ -13,21 +13,7 @@ spring:
       detection-strategy: all
       base-path: /api
   datasource:
-    url: jdbc:h2:mem:demo
-  jpa:
-    open-in-view: false
-    show-sql: true
-    generate-ddl: true
-#    properties:
-#      jakarta:
-#        persistence:
-#          schema-generation:
-#            database:
-#              action: create
-#            create-source: metadata
-#            scripts:
-#              action: create
-#              create-target: src/main/db/migration/V1.0__Create_database.sql
+    url: jdbc:h2:mem:accounting
   mvc:
     problemdetails:
       enabled: true
