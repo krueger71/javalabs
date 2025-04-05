@@ -1,4 +1,4 @@
-package krueger71.demo.accounting;
+package io.github.krueger71.javalabs.accounting;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

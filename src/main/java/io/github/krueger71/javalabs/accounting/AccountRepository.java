@@ -1,4 +1,4 @@
-package krueger71.demo.accounting;
+package io.github.krueger71.javalabs.accounting;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

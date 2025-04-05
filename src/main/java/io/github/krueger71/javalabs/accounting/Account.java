@@ -1,4 +1,4 @@
-package krueger71.demo.accounting;
+package io.github.krueger71.javalabs.accounting;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.Id;
