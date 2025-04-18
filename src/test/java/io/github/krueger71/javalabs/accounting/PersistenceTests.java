@@ -28,7 +28,7 @@ class PersistenceTests {
         final String name = "Computers";
 
         assertEquals(0, accountRepository.count());
-        var account = assertDoesNotThrow(() -> accountRepository.save(new Account(number, name, null, null)));
+        var account = assertDoesNotThrow(() -> accountRepository.save(new AccountRecord(number, name, null, null)));
         assertEquals(1, accountRepository.count());
         assertEquals(number, account.number());
         assertEquals(name, account.name());
@@ -39,7 +39,7 @@ class PersistenceTests {
     void transaction() {
         final var instant = Instant.now();
         assertEquals(0, transactionRepository.count());
-        var transaction = assertDoesNotThrow(() -> transactionRepository.save(new Transaction(null, instant,
+        var transaction = assertDoesNotThrow(() -> transactionRepository.save(new TransactionRecord(null, instant,
                 instant, null)));
         assertEquals(1, transactionRepository.count());
         var id = transaction.id();
@@ -52,16 +52,18 @@ class PersistenceTests {
     @Test
     void entry() {
         final var instant = Instant.now();
-        var account = assertDoesNotThrow(() -> accountRepository.save(new Account(1234L, "Account", null, null)));
+        var account = assertDoesNotThrow(() -> accountRepository.save(new AccountRecord(1234L, "Account", null, null)));
         var transaction = assertDoesNotThrow(
-                () -> transactionRepository.save(new Transaction(null, instant, instant, null)));
+                () -> transactionRepository.save(new TransactionRecord(null, instant, instant, null)));
 
         transaction = transactionRepository.findById(transaction.id()).orElseThrow();
         transaction.entries()
-                .add(new Entry(null, AggregateReference.to(account.number()), AggregateReference.to(transaction.id()),
+                .add(new EntryRecord(null, AggregateReference.to(account.number()),
+                        AggregateReference.to(transaction.id()),
                         new BigDecimal("123.45")));
         transaction.entries()
-                .add(new Entry(null, AggregateReference.to(account.number()), AggregateReference.to(transaction.id()),
+                .add(new EntryRecord(null, AggregateReference.to(account.number()),
+                        AggregateReference.to(transaction.id()),
                         new BigDecimal("-123.45")));
         transaction = transactionRepository.save(transaction);
         assertEquals(2, entryRepository.count());

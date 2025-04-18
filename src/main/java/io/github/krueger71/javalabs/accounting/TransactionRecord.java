@@ -4,10 +4,12 @@ import java.time.Instant;
 import java.util.Set;
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
 
 import jakarta.validation.constraints.NotNull;
 
-record Transaction(
+@Table("TRANSACTION")
+record TransactionRecord(
                 @Id Long id,
                 @NotNull
                 /** Business datetime */
@@ -15,5 +17,5 @@ record Transaction(
                 @NotNull
                 /** System datetime */
                 Instant noticed,
-                Set<Entry> entries) {
+                Set<EntryRecord> entries) {
 }

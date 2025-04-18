@@ -8,12 +8,8 @@ server:
 spring:
   application:
     name: javalabs
-  data:
-    rest:
-      detection-strategy: all
-      base-path: /api
   datasource:
-    url: jdbc:h2:mem:accounting
+    url: jdbc:h2:mem:accounting;MODE=PostgreSQL;DATABASE_TO_LOWER=TRUE;DEFAULT_NULL_ORDERING=HIGH
   mvc:
     problemdetails:
       enabled: true

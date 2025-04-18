@@ -1,6 +1,6 @@
 create table if not exists account (
      number bigint primary key,
-     name varchar2(64) not null,
+     name varchar(64) not null,
      version bigint not null default(1)
 );
 

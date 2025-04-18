@@ -1,0 +1,31 @@
+## Get all accounts
+GET http://localhost:8080/api/accounts
+
+## Create an account
+POST http://localhost:8080/api/accounts
+content-type: application/json
+
+{
+    "number": 1250,
+    "name": "Computers"
+}
+
+## Get all transactions
+GET http://localhost:8080/api/transactions
+
+## Create a transaction
+POST http://localhost:8080/api/transactions
+content-type: application/json
+
+{
+    "entries": [
+        {
+            "account": 1250,
+            "amount": 123.45
+        },
+        {
+            "account": 1250,
+            "amount": -123.45
+        }
+    ]
+}
